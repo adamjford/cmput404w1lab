@@ -9,7 +9,7 @@ serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serverSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 # Can't use port 80 because we don't have root
-serverSocket.bind(("0.0.0.0", 8000))
+serverSocket.bind(("0.0.0.0", 8080))
 serverSocket.listen(5)
 
 while True:
@@ -32,7 +32,7 @@ while True:
     # SOCK_STREAM means we want a TCP socket (Question 1)
     clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    clientSocket.connect(("www.google.com", 80))
+    clientSocket.connect(("localhost", 8000))
 
     incomingSocket.setblocking(0)
     clientSocket.setblocking(0)
